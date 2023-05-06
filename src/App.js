@@ -1,12 +1,12 @@
-import {Table, TableBody, TableCell, TableHead, TableRow} from '@mui/material';
+import {Table, TableBody, TableCell, TableHead, TableRow, TableContainer} from '@mui/material';
 import styled from "styled-components";
 import {StyledEngineProvider} from "@mui/styled-engine";
 import './App.css';
 
-const MyTable = styled(Table)`
-  width:500px;
-  
+const MyTableHead = styled(TableHead)`
+  background-color:rgba(232, 241, 255, 1);
 `
+
 
 function App() {
   function createData(
@@ -29,28 +29,30 @@ function App() {
 
   return (
     <StyledEngineProvider injectFirst>
-      <MyTable>
-        <TableHead>
-          <TableRow>
-            <TableCell>사용 목적</TableCell>
-            <TableCell>이름</TableCell>
-            <TableCell>예산안</TableCell>
-            <TableCell>결산안</TableCell>
-            <TableCell>집행률</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
+      <TableContainer>
+        <Table>
+          <MyTableHead>
             <TableRow>
-              <TableCell>{row.purpose}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.plan}</TableCell>
-              <TableCell>{row.result}</TableCell>
-              <TableCell>{row.percentage}</TableCell>
+              <TableCell >사용 목적</TableCell>
+              <TableCell>이름</TableCell>
+              <TableCell>예산안</TableCell>
+              <TableCell>결산안</TableCell>
+              <TableCell>집행률</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </MyTable>
+          </MyTableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow>
+                <TableCell>{row.purpose}</TableCell>
+                <TableCell>{row.name}</TableCell>
+                <TableCell>{row.plan}</TableCell>
+                <TableCell>{row.result}</TableCell>
+                <TableCell>{row.percentage}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </StyledEngineProvider>  
   );
 }
