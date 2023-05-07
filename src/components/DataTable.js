@@ -9,24 +9,8 @@ const MyTableHead = styled(TableHead)`
 `
 
 
-function DataTable(){
-    function createData(
-        purpose,
-        name,
-        plan,
-        result,
-        percentage,
-      ) {
-        return { purpose, name, plan, result, percentage };
-      }
+function DataTable(props){
       
-    const rows = [
-        createData("행사준비","교통비",200,100,50),
-        createData("행사준비","식비",200,100,50),
-        createData("행사준비","섭외비",200,100,50),
-        createData("회의비","교통비",200,100,50),
-        createData("회의비","식비",200,100,50),
-    ];
     return(
         <StyledEngineProvider injectFirst>
             <TableContainer>
@@ -41,7 +25,7 @@ function DataTable(){
                     </TableRow>
                 </MyTableHead>
                 <TableBody>
-                    {rows.map((row) => (
+                    {props.rows.map((row) => (
                     <TableRow>
                         <TableCell>{row.purpose}</TableCell>
                         <TableCell>{row.name}</TableCell>
