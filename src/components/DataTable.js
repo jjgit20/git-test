@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 import {Table, TableBody, TableCell, TableHead, TableRow, TableContainer} from '@mui/material';
 import styled from "styled-components";
 import {StyledEngineProvider} from "@mui/styled-engine";
@@ -10,29 +10,38 @@ const MyTableHead = styled(TableHead)`
 
 
 function DataTable(props){
-      
+    console.log(props.jsondata);
+
     return(
         <StyledEngineProvider injectFirst>
             <TableContainer>
                 <Table>
                 <MyTableHead>
                     <TableRow>
-                    <TableCell >사용 목적</TableCell>
-                    <TableCell>이름</TableCell>
+                    <TableCell >사업명</TableCell>
+                    <TableCell>항목</TableCell>
                     <TableCell>예산안</TableCell>
                     <TableCell>결산안</TableCell>
                     <TableCell>집행률</TableCell>
                     </TableRow>
                 </MyTableHead>
                 <TableBody>
-                    {props.rows.map((row) => (
-                    <TableRow>
-                        <TableCell>{row.purpose}</TableCell>
-                        <TableCell>{row.name}</TableCell>
-                        <TableCell>{row.plan}</TableCell>
-                        <TableCell>{row.result}</TableCell>
-                        <TableCell>{row.percentage}</TableCell>
-                    </TableRow>
+                    {props.jsondata.map(item => (
+                        <Fragment>
+                            <TableRow>
+                                <TableCell rowSpan={item.항목.length + 1}>
+                                {item.사업명}
+                                </TableCell>
+                            </TableRow>
+                            {item.항목.map(subItem => (                                  
+                                    <TableRow>
+                                        <TableCell>{Object.keys(subItem)[0]}</TableCell>
+                                        <TableCell>￦{subItem[Object.keys(subItem)[0]].예산안}</TableCell>
+                                        <TableCell>￦{subItem[Object.keys(subItem)[0]].결산안}</TableCell>
+                                        <TableCell>{subItem[Object.keys(subItem)[0]].집행률}%</TableCell>
+                                    </TableRow>
+                            ))}
+                        </Fragment>
                     ))}
                 </TableBody>
                 </Table>
