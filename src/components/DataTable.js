@@ -8,7 +8,6 @@ const MyTableHead = styled(TableHead)`
   background-color:rgba(232, 241, 255, 1);
 `
 
-
 function DataTable(props){
     console.log(props.jsondata);
 
