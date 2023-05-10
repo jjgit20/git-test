@@ -18,11 +18,11 @@ function DataTable(props){
                 <Table>
                 <MyTableHead>
                     <TableRow>
-                    <TableCell >사업명</TableCell>
-                    <TableCell>항목</TableCell>
-                    <TableCell>예산안</TableCell>
-                    <TableCell>결산안</TableCell>
-                    <TableCell>집행률</TableCell>
+                        <TableCell >사업명</TableCell>
+                        <TableCell>항목</TableCell>
+                        <TableCell>예산안</TableCell>
+                        <TableCell>결산안</TableCell>
+                        <TableCell>집행률</TableCell>
                     </TableRow>
                 </MyTableHead>
                 <TableBody>
