@@ -45,3 +45,5 @@ function jsonTable(props) {
     </TableContainer>
   );
   }
+
+  export default jsonTable;

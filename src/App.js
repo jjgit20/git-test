@@ -1,5 +1,5 @@
 import './App.css';
-import jsontable from './component/table';
+import jsonTable from './component/table';
 import json from './test.json';
 
 
