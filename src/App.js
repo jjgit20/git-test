@@ -1,12 +1,17 @@
 import './App.css';
-import jsonTable from './component/table';
+import JsonTable from './component/table.js';
 import json from './test.json';
 
 
 function App() {
-  
   return (
-    <jsonTable input={json}></jsonTable> 
+    <div class="layout">
+      <div class="logo">
+        <img alt=""
+      </div>
+      <JsonTable input={json}></JsonTable> 
+    </div>
+    
   );
 
 }

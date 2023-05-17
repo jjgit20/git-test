@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-function jsonTable(props) {
+function JsonTable(props) {
     
     return (
   
@@ -23,7 +23,7 @@ function jsonTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-      {props.json.map(item => (
+      {props.input.map(item => (
           <Fragment>
               <TableRow>
                   <TableCell rowSpan={item.항목.length + 1}>
@@ -46,4 +46,4 @@ function jsonTable(props) {
   );
   }
 
-  export default jsonTable;
+  export default JsonTable;
